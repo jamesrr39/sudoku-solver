@@ -12,6 +12,10 @@ class BoardTests(unittest.TestCase):
         self.assertTrue(Board.is_set_valid([2, 9, 3, 4, 5, 6, 7, 8, 1]))
         self.assertFalse(Board.is_set_valid([4, 2, 3, 4, 5, 6, 7, 8, 9]))
 
+    def test_get_3_x_3_grid(self):
+        board = Board()
+
+
 
 if __name__ is '__main__':
     unittest.main()
