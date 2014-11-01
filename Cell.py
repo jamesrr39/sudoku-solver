@@ -7,6 +7,7 @@ class Cell:
     value = None
 
     def __init__(self, value):
+        self.value = value
         if value is None:
             self.mutable = True
 
@@ -20,5 +21,5 @@ class Cell:
         else:
             return False
 
-    def __str__(self):
-        return self.value + "a"
+    def __repr__(self):
+        return self.value.__str__()

@@ -1,5 +1,7 @@
 __author__ = 'james'
 
+import Cell
+
 
 class Board:
 
@@ -9,8 +11,7 @@ class Board:
     board_list 2D list of arrays of starting grid
     """
     def __init__(self, board_matrix):
-        self.board = board_matrix
-
+        self.board = [[Cell.Cell(cell) for cell in row] for row in board_matrix]
 
     def fill_in(self):
         # todo
