@@ -10,7 +10,7 @@ def get_board_mock():
         [None, None, None, None, None, None, None, None, None],
         [None, None, None, None, None, None, None, None, None],
         [None, None, None, None, None, None, None, None, None],
-        [None, None, None, None, None, None, None, None, None],
+        [None, None, None, None, None, None, None, 7, None],
         [None, None, None, None, None, None, None, None, None],
         [None, None, None, None, None, None, None, None, None]
     ]

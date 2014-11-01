@@ -8,9 +8,8 @@ class Board:
     """
     board_list 2D list of arrays of starting grid
     """
-    def __init__(self, board_list):
-
-        self.board = board_list
+    def __init__(self, board_matrix):
+        self.board = board_matrix
 
 
     def fill_in(self):
@@ -18,10 +17,7 @@ class Board:
         return
 
     def get_column(self, column_index):
-        column = []
-        for row in self.board:
-            column.append(row[column_index])
-        return column
+        return [item[column_index] for item in self.board]
 
     """
     get 3x3 squares
@@ -29,9 +25,13 @@ class Board:
     index: start from top left, go to top right, bottom left, bottom right
     """
     def get_3_by_3_square(self, index):
-        x = index % 3
-        y = index / 3
-        return [row[x:y] for row in self.board[x:y]]
+        square_x_coord = index % 3
+        square_y_coord = index / 3
+        x_lower = 3 * square_x_coord
+        x_higher = x_lower + 3
+        y_lower = 3 * square_y_coord
+        y_higher = y_lower + 3
+        return [row[x_lower:x_higher] for row in self.board[y_lower:y_higher]]
 
 
     """
