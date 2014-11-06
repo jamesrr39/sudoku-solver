@@ -3,23 +3,32 @@ __author__ = 'james'
 
 class Cell:
 
-    mutable = False
     value = None
 
     def __init__(self, value):
-        self.value = value
-        if value is None:
-            self.mutable = True
-
-    def get_is_mutable(self):
-        return self.mutable
+        self.set_value(value)
 
     def set_value(self, value):
-        if self.mutable is True:
+        if value is not None:
             self.value = value
-            return True
-        else:
-            return False
+
+    @staticmethod
+    def get_possible_values(row, column, square):
+        possible_values = range(1, 9)
+        for unique_set in [row, column, square]:
+            for cell in unique_set:
+                if cell is not None and cell in possible_values:
+                    possible_values.remove(cell)
+        return possible_values
+
+    def __getitem__(self):
+        return self.value
 
     def __repr__(self):
-        return self.value.__str__()
+        return "N" if self.value is None else self.value.__str__()
+
+    def __eq__(self, other):
+        if isinstance(other, Cell):
+            return self.value == other.value
+        else:
+            return self.value == other
