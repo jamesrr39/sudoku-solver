@@ -14,7 +14,7 @@ class Cell:
 
     @staticmethod
     def get_possible_values(row, column, square):
-        possible_values = range(1, 9)
+        possible_values = range(1, 10)
         for unique_set in [row, column, square]:
             for cell in unique_set:
                 if cell is not None and cell in possible_values:
