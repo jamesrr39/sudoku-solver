@@ -6,4 +6,4 @@ using python 2.7
 
 usage:
 
-python soduku-solver.py
+    python soduku-solver.py
