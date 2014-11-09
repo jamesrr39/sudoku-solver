@@ -36,10 +36,5 @@ class BoardTests(unittest.TestCase):
                 board_mock[index][8]
             ])
 
-    def test_get_square_index(self):
-        self.assertEqual(3, Board.get_square_index(2, 4))
-        self.assertEqual(5, Board.get_square_index(6, 3))
-        self.assertEqual(8, Board.get_square_index(8, 8))
-
 if __name__ is '__main__':
     unittest.main()

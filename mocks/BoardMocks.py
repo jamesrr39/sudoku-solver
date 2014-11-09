@@ -1,7 +1,5 @@
 __author__ = 'james'
 
-
-
 def get_board_mock():
     return [
         [3, None, None, None, 7, None, None, None, None],

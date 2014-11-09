@@ -14,5 +14,10 @@ class BoardHelperTests(unittest.TestCase):
         self.assertTrue(BoardHelper.is_set_valid([2, 9, 3, 4, 5, 6, 7, 8, 1], False))
         self.assertFalse(BoardHelper.is_set_valid([4, 2, 3, 4, 5, 6, 7, 8, 9], False))
 
+    def test_get_square_index(self):
+        self.assertEqual(3, BoardHelper.get_square_index(2, 4))
+        self.assertEqual(5, BoardHelper.get_square_index(6, 3))
+        self.assertEqual(8, BoardHelper.get_square_index(8, 8))
+
 if __name__ is '__main__':
     unittest.main()
