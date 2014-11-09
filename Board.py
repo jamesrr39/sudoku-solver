@@ -60,3 +60,9 @@ class Board:
     def print_board(self):
         for row in self.board:
             print row
+
+    def to_string(self):
+        board_list = []
+        for row in self.board:
+            board_list.append(row.__str__())
+        return "\n".join(board_list)

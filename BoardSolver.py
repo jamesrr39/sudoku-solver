@@ -1,6 +1,9 @@
 __author__ = 'james'
 
 from BoardIteration import BoardIteration
+import logging
+
+logger = logging.getLogger("BoardIteration")
 
 
 def solve(board):
@@ -11,10 +14,14 @@ def solve(board):
         board_iteration = BoardIteration(board)
         board_iteration.solve()
         board = board_iteration.board
-        print "squares solved: " + board_iteration.squares_solved.__str__()
-        print "squares unsolved: " + board_iteration.squares_unsolved.__str__()
+        logger.info("iteration #" + iteration.__str__())
+        logger.info("squares solved: " + board_iteration.squares_solved.__str__())
+        logger.info("squares unsolved: " + board_iteration.squares_unsolved.__str__())
+        logger.debug("\n" + board.to_string())
         if board_iteration.squares_solved is 0:
-            return "unsolved after " + iteration.__str__() + " iterations"
+            logger.warn("unsolved after " + iteration.__str__() + " iterations")
+            return False
         if board_iteration.squares_unsolved is 0:
             is_unsolved = False
-    return "solved in " + iteration.__str__() + " iterations"
+    logger.info("solved in " + iteration.__str__() + " iterations")
+    return True
