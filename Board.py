@@ -57,10 +57,6 @@ class Board:
                 return False
         return True
 
-    def print_board(self):
-        for row in self.board:
-            print row
-
     def to_string(self):
         board_list = []
         for row in self.board:

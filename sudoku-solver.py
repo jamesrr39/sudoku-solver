@@ -13,8 +13,8 @@ if not isinstance(numeric_level, int):
 logging.basicConfig(level=numeric_level)
 
 board = Board(BoardMocks.get_board_mock())
-board.print_board()
+print board.to_string()
 print "\n\n"
 BoardSolver.solve(board)
 print "\n\n"
-board.print_board()
+print board.to_string()
