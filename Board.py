@@ -16,40 +16,12 @@ class Board:
     def __init__(self, board_matrix):
         self.board = [[Cell(cell) for cell in row] for row in board_matrix]
 
-    def solve(self, max_iterations):
-        iteration = 0
-        is_unsolved = True
-        while (iteration < max_iterations) and is_unsolved is True:
-            iteration += 1
-            is_unsolved = False
-            for (row_index, row) in enumerate(self.board):
-                for (column_index, cell) in enumerate(row):
-                    if cell.value is None:
-                        square_index = self.get_square_index(column_index, row_index)
-                        square = Square(self.get_3_by_3_square(square_index))
-                        possible_values = cell.get_possible_values(
-                            row,
-                            self.get_column(column_index),
-                            square.get_as_list()
-                        )
-                        if possible_values is not None:
-                            if len(possible_values) is 1:
-                                cell.set_value(possible_values[0])
-                            else:
-                                is_unsolved = True
-        return "solved in " + iteration.__str__() + " iterations" if is_unsolved == False else "unsolved after " + iteration.__str__() + " iterations"
-
     def get_column(self, column_index):
         return [item[column_index] for item in self.board]
 
     def get_row(self, row_index):
         return self.board[row_index]
 
-    @staticmethod
-    def get_square_index(x, y):
-        y_group = y / 3
-        x_group = x / 3
-        return (3 * y_group) + x_group
 
 
     """
