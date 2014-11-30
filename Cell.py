@@ -4,6 +4,7 @@ __author__ = 'james'
 class Cell:
 
     value = None
+    possible_values = []
 
     def __init__(self, value):
         self.set_value(value)

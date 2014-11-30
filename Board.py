@@ -16,9 +16,15 @@ class Board:
     def __init__(self, board_matrix):
         self.board = [[Cell(cell) for cell in row] for row in board_matrix]
 
+    """
+    list of 9 Cells
+    """
     def get_column(self, column_index):
         return [item[column_index] for item in self.board]
 
+    """
+    list of 9 Cells
+    """
     def get_row(self, row_index):
         return self.board[row_index]
 
@@ -30,14 +36,15 @@ class Board:
     index: 0-8 start from top left, go to top right, bottom left, bottom right
     """
     def get_3_by_3_square(self, index):
-        square_x_coord = index % 3
-        square_y_coord = index / 3
-        x_lower = 3 * square_x_coord
-        x_higher = x_lower + 3
-        y_lower = 3 * square_y_coord
-        y_higher = y_lower + 3
-        return [row[x_lower:x_higher] for row in self.board[y_lower:y_higher]]
+        edge_coords = BoardHelper.get_square_edge_coordinates(index)
+        cells = []
 
+        for y in range(edge_coords["y_low"],edge_coords["y_high"]):
+            row = []
+            for x in range(edge_coords["x_low"],edge_coords["x_high"]):
+                row.append(self.board[x][y])
+            cells.append(row)
+        return cells
 
     """
     checks for:

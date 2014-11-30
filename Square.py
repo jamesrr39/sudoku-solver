@@ -3,6 +3,7 @@ __author__ = 'james'
 
 from Cell import Cell
 
+
 class Square:
 
     square = []
@@ -28,7 +29,7 @@ class Square:
             if len(row) is not 3:
                 return "a row should have 3 cells"
             for cell in row:
-                value = cell.value if isinstance(cell, Cell) else cell
+                value = cell.value
                 if value is not None and value not in range(1, 10):
                     return "the cell should be None or between 1 and 9 (inclusive). Actual value: " + value.__str__()
         return True

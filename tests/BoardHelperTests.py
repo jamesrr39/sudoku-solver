@@ -19,5 +19,21 @@ class BoardHelperTests(unittest.TestCase):
         self.assertEqual(5, BoardHelper.get_square_index(6, 3))
         self.assertEqual(8, BoardHelper.get_square_index(8, 8))
 
+    def test_get_square_edge_coordinates(self):
+        index = 3
+        coords = BoardHelper.get_square_edge_coordinates(index)
+        self.assertEqual(3,coords["x_high"])
+        self.assertEqual(0,coords["x_low"])
+        self.assertEqual(6,coords["y_high"])
+        self.assertEqual(3,coords["y_low"])
+
+        index2 = 4
+        coords2 = BoardHelper.get_square_edge_coordinates(index2)
+        self.assertEqual(6,coords2["x_high"])
+        self.assertEqual(3,coords2["x_low"])
+        self.assertEqual(6,coords2["y_high"])
+        self.assertEqual(3,coords2["y_low"])
+
+
 if __name__ is '__main__':
     unittest.main()
